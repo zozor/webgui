@@ -12,7 +12,7 @@ The Idea
 
 You import webgui and set "handlers" that can be called with javascript, after that you start the server.
 webgui.SetHandler(handlername string, func([]byte) []byte)
-webgui.StartServer(addr string) //usually localhost
+webgui.StartServer(addr string) //usually localhost:34823 - or any other port
 
 in index.html you use 
 
@@ -20,59 +20,18 @@ in index.html you use
 
 this loads jquery and the webgui function Communicate into the browser, which lets you call your handlers in go
 
-Communicate(handlername, data, function(jsonobj))
+Communicate(handlername, data, returntype, function(data))
+-handlername: sends data to the handle with that name
+-data: Can be either string og json object
+-returntype: Can be whatever is used by $.ajax() in jquery. "text" or "json" are good choices for go.
+-function(data): success function, data is the type specified in returntype
 
 it also loads a ping function that makes sure the server is closed when the index.html page is not active anymore.
 
-===========================
-Example
-===========================
-
-server.go:
-
-package main
-
-import (
-	"webgui"
-)
-
-func mainWeb() {
-	webgui.SetHandler("test", Dostuff)
-}
-
-func main() {
-	webgui.StartServer("localhost:27000")
-}
-
-func Dostuff(js []byte) []byte { //js argument is whatever data you send. Must return "json object" in []byte form
-	return `{"data":"over 9000!"}`
-}
-
-index.html:
-
-<html>
-<head>
-<script type="text/javascript" src="webgui"></script>
-<script type="text/javascript">
-function CLICK() {
-	Communicate("test", {"data": "one"}, function(data) {
-		$("#kage").html(data["data"]);
-	})
-}
-</script>
-</head>
-<body>
-<input type="button" value="click me" onclick="CLICK();"/>
-<div id="#kage">
-</div>
-</body>
-</html>
-
-===========================
-Other info
-===========================
 It's possible to use resource packing with
 
 webgui.UseResource(files map[string][]byte)
 
 if the client requests a file that does not exist, it looks in this map, before returning 404
+
+Look at the examples to end confusion :)

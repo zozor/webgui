@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript" src="webgui"></script>
+<script type="text/javascript">
+function CLICK() {
+	Communicate("test", {"Data":"it works"}, "json", function(data) {
+		$("#kage").html(data["Data"]);
+	});
+}
+function Reverse() {
+	Communicate("reverse", $("#myinput").val(), "text", function(data) {
+		$("#thing").html(data);
+	});
+}
+</script>
+</head>
+<body>
+<input type="button" value="click me" onclick="CLICK();"/>
+<div id="kage">
+</div>
+
+<br/>
+
+<input type="text" id="myinput"/>
+<input type="button" value="reverse!" onclick="Reverse();")/>
+<div id="thing">
+</div>
+</body>
+</html>

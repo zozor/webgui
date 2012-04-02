@@ -20,7 +20,7 @@ in index.html you use
 
 this loads jquery and the webgui function Communicate into the browser, which lets you call your handlers in go
 
-Communicate(handlername, data, function(data))
+Communicate(handlername, data, function(jsonobj))
 
 it also loads a ping function that makes sure the server is closed when the index.html page is not active anymore.
 
@@ -37,7 +37,7 @@ import (
 )
 
 func mainWeb() {
-	webgui.SetHandler("get", Dostuff)
+	webgui.SetHandler("test", Dostuff)
 }
 
 func main() {

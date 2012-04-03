@@ -33,9 +33,9 @@ API
 
 >This sets a handler that can be called from javascript
 
->*handlername* is the name which identifies this handler
+>`handlername` is the name which identifies this handler
 
->*handler* is the handler function
+>`handler` is the handler function
 
 `webgui.StartServer(addr string)`
 

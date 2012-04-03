@@ -11,6 +11,7 @@ The idea
 ===========================
 
 You import `webgui` and set "handlers" that can be called with javascript, after that you start the server.
+When the server is started, your browser will be opened and will request index.html. If you close the browser, the server will die from no pings after 15 seconds.
 
 in index.html you use 
 
@@ -24,6 +25,7 @@ It is possible to use resource packing with
 `webgui.UseResource(files map[string][]byte)`
 
 if the client requests a file that does not exist, it looks in this map, before returning 404
+
 
 API
 ===========================

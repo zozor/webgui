@@ -48,7 +48,7 @@ API
 
 ##Javascript functions
 
-Communicate(handlername, data, returntype, function(data))
+`Communicate(handlername, data, returntype, function(data))`
 
 >`handlername` calls the handler with this name
 

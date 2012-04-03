@@ -58,9 +58,11 @@ Communicate(handlername, data, returntype, function(data))
 
 >`function(data)` is the "success" function, data is the data returned from the go handler, its type is specified in returntype
 
-##Errors and Misc
 If returntype and what the go handler returns does not match or server has exited, an `alert` with the error will be called.
 This could be better in the future.
 
+##Notes
 
-Look at the examples to end confusion :)
+Use the examples to understand how it works.
+
+This library is only compatible with linux at the moment, But should be pretty easy to fix for windows. The server uses the command `x-www-browser` to open the browser in `webgui.go`, you only need to change the path to your own browser and then `go install`

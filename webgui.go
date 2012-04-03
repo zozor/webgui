@@ -1,5 +1,6 @@
 /*
-Javascript: Communicate(handlername, jsondata, successfunction(xml))
+A simple gui toolkit to communicate between html/javascript and go server.
+On execution it opens a browser connecting it to the server.
 */
 package webgui
 
@@ -44,6 +45,7 @@ func dieCounter() {
 
 var root string
 
+//This starts the server with the address addr. should be localhost:23192 (or some other port)
 func StartServer(addr string) { //"127.0.0.1:3939"
 	http.Handle("/", http.HandlerFunc(requests))
 	root, _ = os.Getwd()
@@ -130,6 +132,7 @@ func setContentType(w http.ResponseWriter, url string) {
 	}
 }
 
+//This writes a json object to the client. I don't know why it's still here :)
 func WriteJSON(w http.ResponseWriter, v interface{}) error {
 	n := json.NewEncoder(w)
 	err := n.Encode(v)

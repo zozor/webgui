@@ -4,7 +4,7 @@ Simple GUI toolkit with go
 Install
 ===========================
 
-go get github.com/zozor/webgui
+`go get github.com/zozor/webgui`
 
 
 The idea
